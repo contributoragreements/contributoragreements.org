@@ -1,0 +1,16 @@
+<div class="jamp-text-on-image<?php echo ($this->class) ? ' ' . $this->class : ''; ?> block"<?php echo $this->cssID ?>>
+    <?php if($image = $this->arrData['getImageObject']($this->image1)): ?>
+        <div class="image"<?php echo ($this->imageAsBackground1) ? ' style="background-image: url(' . $image->src . '); background-repeat:no-repeat;"' : ''; ?>>
+            <?php if(!$this->imageAsBackground1): ?>
+                <img
+                    src="<?php echo $image->src; ?>"
+                    alt="<?php echo ($image->alt) ? $image->alt : $this->imageTitle1; ?>"
+                    title="<?php echo ($image->alt) ? $image->alt : $this->imageTitle1; ?>"
+                />
+            <?php endif; ?>
+        </div>
+    <?php endif ?>
+    <div class="text">
+        <?php echo $this->text1; ?>
+    </div>
+</div>
