@@ -1,0 +1,59 @@
+
+<div id="tl_buttons">
+  <a href="<?= $this->href ?>" class="header_back" title="<?= $this->title ?>"><?= $this->button ?></a>
+</div>
+
+<div id="tl_extension">
+  <h2 class="sub_headline"><?= $this->headline ?></h2>
+  <?= $this->message ?>
+  <?php if (!$this->files): ?>
+    <form action="<?= $this->action ?>" class="tl_form" method="post">
+      <div class="tl_formbody_edit">
+        <input type="hidden" name="FORM_SUBMIT" value="tl_labels">
+        <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN ?>">
+        <div class="tl_tbox">
+          <h3><label for="ctrl_language"><?= $this->label ?></label></h3>
+          <select name="language" id="ctrl_language" class="tl_select" onfocus="Backend.getScrollOffset();"><?= $this->options ?></select>
+          <?php if ($this->help): ?>
+            <p class="tl_help tl_tip"><?= $this->help ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+      <div class="tl_submit_container">
+        <input type="submit" class="tl_submit" value="<?= $this->submit ?>">
+      </div>
+    </form>
+  <?php else: ?>
+    <div class="tl_labels_container">
+      <?php foreach ($this->files as $strGroup=>$arrFiles): ?>
+        <h3>system/modules/<?= $strGroup ?></h3>
+        <?php foreach ($arrFiles as $strFile=>$arrFile): $i=0; ?>
+          <?php if ($arrFile === null): ?>
+            <div class="tl_labels error">
+              <h4><?= $strFile ?></h4>
+              <p><?= $this->error ?></p>
+            </div>
+          <?php elseif (!empty($arrFile)): ?>
+            <div class="tl_labels warning">
+              <h4><?= $strFile ?></h4>
+              <p><?= $this->warning ?></p>
+              <table>
+                <?php foreach ($arrFile as $strKey=>$arrLabels): ?>
+                  <tr class="<?= (($i%2) == 0) ? 'even' : 'odd' ?>">
+                    <td style="white-space:nowrap;padding-right:6px"><?= $strKey ?></td>
+                    <td><?= implode('<br>', (array) $arrLabels) ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </table>
+            </div>
+          <?php else: ?>
+            <div class="tl_labels ok">
+              <h4><?= $strFile ?></h4>
+              <p><?= $this->ok ?></p>
+            </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
+</div>

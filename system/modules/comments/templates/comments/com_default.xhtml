@@ -1,0 +1,22 @@
+
+<div class="comment_default<?= $this->class ?>" id="<?= $this->id ?>">
+
+  <p class="info"><?= $this->by ?> <?php if ($this->website): ?><a href="<?= $this->website ?>" rel="nofollow"<?= LINK_NEW_WINDOW ?>><?php endif; echo $this->name; ?><?php if ($this->website): ?></a><?php endif; ?><span class="date"> | <?= $this->date ?></span></p>
+
+  <div class="comment">
+    <?= $this->comment ?>
+  </div>
+
+  <?php if ($this->addReply): ?>
+    <div class="reply">
+
+      <p class="info"><?= $this->rby ?> <?= $this->author->name ?></p>
+
+      <div class="comment">
+        <?= $this->reply ?>
+      </div>
+
+    </div>
+  <?php endif; ?>
+
+</div>

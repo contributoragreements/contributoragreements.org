@@ -1,0 +1,18 @@
+<?= '<?php' . "\n" ?>
+
+/**
+ * Contao Open Source CMS
+ *
+ * Copyright (c) 2005-2016 Leo Feyer
+ *
+ * @package   <?= $this->package . "\n" ?>
+ * @author    <?= $this->author . "\n" ?>
+ * @license   <?= $this->license . "\n" ?>
+ * @copyright <?= $this->copyright . "\n" ?>
+ */
+
+
+/**
+ * Miscellaneous
+ */
+$GLOBALS['TL_LANG']['MSC'][''] = '';

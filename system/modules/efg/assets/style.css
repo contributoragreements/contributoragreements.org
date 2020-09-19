@@ -1,0 +1,29 @@
+/* Contao Efg style sheet */
+.header_csv_import, .header_csv_export, .header_xls_export{padding:2px 0 3px 20px;margin-left:15px;background-position:left center;background-repeat:no-repeat;}
+.header_csv_import{background-image:url("importCSV.gif");}
+.header_csv_export{background-image:url("exportCSV.gif");}
+.header_xls_export{background-image:url("exportEXCEL.gif");}
+.cte_type { margin:0px 0px 6px 0px; }
+.tl_file_list { vertical-align:top; padding:9px 0px !important; }
+.mark_links a { text-decoration:underline; }
+.fd_wrap { width:590px; }
+.fd_head { display:block; font-weight:bold; }
+.fd_head span { font-weight:normal; padding-left:3px; }
+.fd_notes { padding:0; margin:6px 0px 6px 0px; }
+.fd_row { float:left; display:block; }
+.fd_label { float:left; display:inline; width:140px; }
+.fd_value { float:left; display:inline; width:450px; }
+
+.fd_mail_send { margin-top:24px; }
+.fd_mail_send .prev_header { margin:0px; width:100%; border:1px solid #cccccc; }
+.fd_mail_send .prev_header td { vertical-align:middle; padding:4px 12px; background-color:#f0f0f0; }
+.fd_mail_send .prev_header .col_0 { width:1%; white-space:nowrap; padding-right:18px; font-weight:bold; }
+.fd_mail_send .preview_plaintext { margin-bottom:12px; border:1px solid #cccccc; padding:24px 18px; overflow:auto; }
+.fd_mail_send .preview_html { margin-bottom:12px; border:1px solid #cccccc; padding:24px 18px; overflow:auto; }
+.fd_mail_send h3 { border:1px solid #cccccc; background-color:#f6f6f6; padding:4px 12px; margin: 0px; margin-top: 12px; border-bottom:0px; }
+
+div.fd_import_prev { border:1px solid #BBBBBB; overflow: auto; margin-top: 9px; max-height: 400px; }
+table.fd_import_data { border-collapse: collapse; margin: 4px; }
+table.fd_import_data thead tr { background-color: #f0f0f0; }
+table.fd_import_data td { vertical-align: top; padding: 2px; border: 1px solid #dedede; }
+table.fd_import_data thead td { padding: 4px 1px; }

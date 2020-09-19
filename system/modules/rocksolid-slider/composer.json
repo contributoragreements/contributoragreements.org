@@ -1,0 +1,37 @@
+{
+	"name":"madeyourday/contao-rocksolid-slider",
+	"description":"Responsive Slider. Full Contao integration, latest touch technology and hardware acceleration.",
+	"keywords":["contao","slider","jquery"],
+	"type":"contao-module",
+	"homepage":"http://rocksolidthemes.com/de/contao/plugins/responsive-slider",
+	"license":"commercial",
+	"authors":[
+		{
+			"name":"RockSolid Themes",
+			"homepage":"http://rocksolidthemes.com/de/contao-themes",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"forum":"http://help.rocksolidthemes.com/discussions",
+		"issues":"https://github.com/madeyourday/contao-rocksolid-slider/issues",
+		"source":"https://github.com/madeyourday/contao-rocksolid-slider"
+	},
+	"require":{
+		"php":">=5.3"
+	},
+	"autoload":{
+		"classmap":["src/"]
+	},
+	"replace":{
+		"contao-legacy/rocksolid-slider":"self.version",
+		"contao-legacy/rocksolid-slider-pro":"self.version"
+	},
+	"extra":{
+		"contao":{
+			"sources":{
+				"":"system/modules/rocksolid-slider"
+			}
+		}
+	}
+}
