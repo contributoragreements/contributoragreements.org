@@ -5,3 +5,4 @@ u2s/db/*
 /composer/
 error_log
 files/
+*.sql

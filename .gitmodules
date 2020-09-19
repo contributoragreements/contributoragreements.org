@@ -1,3 +1,21 @@
 [submodule "lib"]
 	path = lib
-	url = https://github.com/Fabricatorz/service2lib.git
+	url = https://github.com/step21/service2lib.git
+[submodule "query2email"]
+	path = query2email
+	url = https://github.com/step21/query2email.git
+[submodule "query2form"]
+	path = query2form
+	url = https://github.com/step21/query2form.git
+[submodule "query2update"]
+	path = query2update
+	url = https://github.com/step21/query2update.git
+[submodule "query2view"]
+	path = query2view
+	url = https://github.com/step21/query2view.git
+[submodule "u2s"]
+	path = u2s
+	url = https://github.com/step21/u2s.git
+[submodule "url"]
+	path = url
+	url = https://github.com/kimili/No-DB-URL-Shortener.git
