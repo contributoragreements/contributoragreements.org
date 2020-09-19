@@ -3,3 +3,5 @@ system/logs/*
 u2s/db/*
 /vendor/
 /composer/
+error_log
+files/
