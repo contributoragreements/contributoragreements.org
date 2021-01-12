@@ -1,0 +1,8 @@
+<div class="jamp-parallax<?php echo ($this->class) ? ' ' . $this->class : ''; ?> block"<?php echo $this->cssID ?>>
+    <?php if($image = $this->arrData['getImageObject']($this->image1)): ?>
+			<div class="parallax-window" data-parallax="scroll" data-image-src="<?php echo $image->src; ?>" alt="<?php echo ($image->alt) ? $image->alt : $this->imageTitle1; ?>" title="<?php echo ($image->alt) ? $image->alt : $this->imageTitle1; ?>"></div>
+    <?php endif ?>
+    <div class="text">
+        <?php echo $this->text1; ?>
+    </div>
+</div>

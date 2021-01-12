@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * Contao Repository :: Template to update the database
+ * @copyright  Peter Koch 2008-2010
+ * @author     Peter Koch, IBK Software AG
+ * @license    See accompaning file LICENSE.txt
+ */
+
+$rep = &$this->rep;
+$theme = &$rep->theme;
+$text = &$GLOBALS['TL_LANG']['tl_repository'];
+$tabindex = 1;
+
+?>
+
+<div id="tl_buttons">
+  <a href="<?= $rep->homeLink ?>" class="header_back" title="<?= $text['goback'] ?>" accesskey="b" onclick="Backend.getScrollOffset()"><?= $text['goback'] ?></a>
+</div>
+
+<h2 class="sub_headline"><?= $text['updatedatabase'] ?></h2>
+
+<div class="mod_repository">
+  <form action="<?= $rep->f_link ?>" id="repository_editform" method="post" >
+    <div class="tl_formbody_edit">
+      <input type="hidden" name="repository_action" value="<?= $rep->f_action ?>">
+      <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN ?>">
+      <div class="tl_tbox">
+        <?= ($rep->dbUpdate != '') ? $rep->dbUpdate : '<div class="color_green">'.$text['dbuptodate'].'</div>' ?>
+      </div>
+    </div>
+    <div class="mod_repository_submit tl_formbody_submit">
+      <div class="tl_submit_container">
+        <?php if (property_exists($rep, 'f_submit')): ?>
+          <input type="submit" name="repository_submitbutton" class="tl_submit" value="<?= $text[$rep->f_submit] ?>">
+        <?php endif; ?>
+        <input type="submit" name="repository_cancelbutton" class="tl_submit" value="<?= $text[$rep->f_cancel] ?>">
+      </div>
+    </div>
+  </form>
+</div>

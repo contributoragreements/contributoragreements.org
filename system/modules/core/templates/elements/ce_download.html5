@@ -1,0 +1,7 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?= Image::getHtml($this->icon, '', 'class="mime_icon"') ?> <a href="<?= $this->href ?>" title="<?= $this->title ?>"><?= $this->link ?> <span class="size">(<?= $this->filesize ?>)</span></a>
+
+<?php $this->endblock(); ?>

@@ -1,0 +1,103 @@
+
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?>
+<<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+
+<table class="single_record">
+<tbody><?php foreach ($this->record as $class => $col): ?>
+  <tr class="<?php echo $class; ?>">
+    <td class="label"><?php echo $col['label']; ?>:&nbsp;</td>
+    <td class="value">
+<?php if ($col['type']=='file' && $col['multiple']): ?>
+<?php foreach ($col['content'] as $file): ?>
+<?php if ($file['display']=='image'): ?><img src="<?php echo TL_FILES_URL . \Image::get($file['src'], 160, null); ?>" alt="<?php echo urldecode(basename($file['src'])); ?>" title="<?php echo urldecode(basename($file['src'])); ?>">
+<?php else: ?><img src="<?php echo $file['icon']; ?>" alt="<?php echo $file['linkTitle']; ?>">&nbsp;<a href="<?php echo $file['href']; ?>"><?php echo $file['linkTitle'] . $file['size']; ?></a>
+<?php endif; ?>
+<?php endforeach; ?>
+<?php elseif ($col['type']=='file' && $col['src']): ?>
+<?php if ($col['display']=='image'): ?><img src="<?php echo TL_FILES_URL . \Image::get($col['src'], 160, null); ?>" alt="<?php echo urldecode(basename($col['src'])); ?>" title="<?php echo urldecode(basename($col['src'])); ?>">
+<?php else: ?><img src="<?php echo $col['icon']; ?>" alt="<?php echo $col['linkTitle']; ?>">&nbsp;<a href="<?php echo $col['href']; ?>"><?php echo $col['linkTitle'] . $col['size']; ?></a>
+<?php endif; ?>
+<?php else: echo $col['content'].'&nbsp;'; endif; ?>
+    </td>
+  </tr><?php endforeach; ?>
+</tbody>
+</table>
+
+<!-- indexer::stop -->
+<?php if ($this->editAllowed): ?>
+<div class="fd_edit"><a href="<?php echo $this->link_edit; ?>" class="fd_edit" title="<?php echo $this->textlink_edit[1]; ?>"><?php echo $this->textlink_edit[0]; ?></a></div>
+<?php endif; ?>
+
+<?php if ($this->deleteAllowed): ?>
+<div class="fd_delete"><a href="<?php echo $this->link_delete; ?>" class="fd_delete" onclick="if (!confirm('<?php echo $this->text_confirmDelete; ?>')) return false;" title="<?php echo $this->textlink_delete[1]; ?>"><?php echo $this->textlink_delete[0]; ?></a></div>
+<?php endif; ?>
+
+<?php if ($this->exportAllowed): ?>
+<div class="fd_export"><a href="<?php echo $this->link_export; ?>" class="fd_export" title="<?php echo $this->textlink_export[1]; ?>"><?php echo $this->textlink_export[0]; ?></a></div>
+<?php endif; ?>
+
+<div class="go_back">{{link::back}}</div>
+<!-- indexer::continue -->
+
+<?php if ($this->allowComments && ($this->comments || !$this->requireLogin)): ?>
+
+<div class="ce_comments block">
+
+<<?php echo $this->hlc; ?>><?php echo $this->addComment; ?></<?php echo $this->hlc; ?>>
+<?php foreach ($this->comments as $comment) echo $comment; ?>
+<?php echo $this->pagination; ?>
+<?php if (!$this->requireLogin): ?>
+
+<!-- indexer::stop -->
+<div class="form">
+<?php if ($this->confirm): ?>
+
+<p class="confirm"><?php echo $this->confirm; ?></p>
+<?php else: ?>
+
+<form action="<?php echo $this->action; ?>" id="<?php echo $this->formId; ?>" method="post">
+<div class="formbody">
+<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->formId; ?>">
+<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+<div class="widget">
+  <?php echo $this->fields['name']->generateWithError(); ?> <?php echo $this->fields['name']->generateLabel(); ?>
+</div>
+<div class="widget">
+  <?php echo $this->fields['email']->generateWithError(); ?> <?php echo $this->fields['email']->generateLabel(); ?>
+</div>
+<div class="widget">
+  <?php echo $this->fields['website']->generateWithError(); ?> <?php echo $this->fields['website']->generateLabel(); ?>
+</div>
+<?php if (isset($this->fields['captcha'])): ?>
+<div class="widget">
+  <?php echo $this->fields['captcha']->generateWithError(); ?> <label for="ctrl_captcha"><?php echo $this->fields['captcha']->generateQuestion(); ?><span class="mandatory">*</span></label>
+</div>
+<?php endif; ?>
+<div class="widget">
+  <?php echo $this->fields['comment']->generateWithError(); ?> <label for="ctrl_<?php echo $this->fields['comment']->id; ?>" class="invisible"><?php echo $this->fields['comment']->label; ?></label>
+</div>
+<div class="submit_container">
+  <input type="submit" class="submit" value="<?php echo $this->submit; ?>">
+</div>
+</div>
+</form>
+<?php if ($this->hasError): ?>
+
+<script>
+try {
+  window.scrollTo(null, ($('<?php echo $this->formId; ?>').getElement('p.error').getPosition().y - 20));
+} catch(e) {}
+</script>
+<?php endif; ?>
+<?php endif; ?>
+
+</div>
+<!-- indexer::continue -->
+<?php endif; ?>
+
+</div>
+<?php endif; ?>
+
+</div>

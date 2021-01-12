@@ -1,0 +1,45 @@
+<?= '<?php' . "\n" ?>
+
+/**
+ * Contao Open Source CMS
+ *
+ * Copyright (c) 2005-2016 Leo Feyer
+ *
+ * @package   <?= $this->package . "\n" ?>
+ * @author    <?= $this->author . "\n" ?>
+ * @license   <?= $this->license . "\n" ?>
+ * @copyright <?= $this->copyright . "\n" ?>
+ */
+
+
+/**
+ * Namespace
+ */
+namespace <?= $this->package ?>;
+
+
+/**
+ * Class <?= $this->class . "\n" ?>
+ *
+ * @copyright  <?= $this->copyright . "\n" ?>
+ * @author     <?= $this->author . "\n" ?>
+ * @package    Devtools
+ */
+class <?= $this->class ?> extends \<?= $this->extends . "\n" ?>
+{
+
+	/**
+	 * Template
+	 * @var string
+	 */
+	protected $strTemplate = '';
+
+
+	/**
+	 * Generate the module
+	 */
+	protected function compile()
+	{
+
+	}
+}

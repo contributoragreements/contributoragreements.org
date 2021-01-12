@@ -1,0 +1,32 @@
+<?php echo '<?php'; ?>
+
+
+/**
+ * Contao Open Source CMS
+ *
+ * Copyright (c) 2005-2014 Leo Feyer
+ *
+ * @package   Efg
+ * @author    Thomas Kuhn <mail@th-kuhn.de>
+ * @license   http://www.gnu.org/licenses/lgpl-3.0.html LGPL
+ * @copyright Thomas Kuhn 2007-2014
+ */
+
+
+<?php echo '// This file is created when saving a form in form generator' . PHP_EOL; ?>
+<?php echo '// last created on ' .date("Y-m-d H:i:s") . PHP_EOL; ?>
+
+
+/**
+ * Back end modules
+ */
+$GLOBALS['TL_LANG']['MOD']['formdata'] = '<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['MOD']['formdata'])); ?>';
+$GLOBALS['TL_LANG']['MOD']['efg'] = '<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['MOD']['efg'])); ?>';
+$GLOBALS['TL_LANG']['MOD']['feedback'] = array('<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['MOD']['feedback'][0])); ?>', '<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['MOD']['feedback'][1])); ?>');
+<?php foreach($this->arrStoringForms as $strKey=>$arrVals): ?>$GLOBALS['TL_LANG']['MOD']['fd_<?php echo $strKey; ?>'] = array('<?php echo str_replace("'", "\'", \String::decodeEntities($arrVals['title'])); ?>', '<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['MOD']['formdata_from'])); ?> "<?php echo str_replace("'", "\'", \String::decodeEntities($arrVals['title'])); ?>".');
+<?php endforeach; ?>
+
+/**
+ * Front end modules
+ */
+$GLOBALS['TL_LANG']['FMD']['formdatalisting'] = array('<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['FMD']['formdatalisting'][0])); ?>', '<?php echo str_replace("'", "\'", \String::decodeEntities($GLOBALS['TL_LANG']['FMD']['formdatalisting'][1])); ?>');

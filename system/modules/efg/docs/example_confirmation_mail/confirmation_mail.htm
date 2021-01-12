@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<title>Music Academy</title>
+<style>
+<!--
+ body { font-family: Arial, Helvetica; font-size: 11pt; color: #000000; margin: 0; padding:0; }
+ td, p, div { font-family: Arial, Helvetica; font-size: 11pt; color: #000000; }
+-->
+</style>
+</HEAD>
+<BODY style="font-family: Arial, Helvetica; font-size: 11pt; color: #000000; margin: 0; padding:0; background-color:#F8F5EF">
+<div style="background: url({{env::path}}files/example_confirmation_mail/mail_academy_bg_top.png) left top repeat-x"><img src="{{env::path}}files/example_confirmation_mail/mail_academy_logo.png"></div>
+<div style="font-family: Arial, Helvetica; font-size: 11pt; color: #000000;">
+<p>Dear {{form::name}},<br><br>
+we received your message on {{date}} and will contact you asap<br><br>
+
+Following data has been submitted.<br>
+Your name: {{form::name}}<br>
+Your file: {{form::file}}<br>
+{{form::file?attachment=true}}<br>
+
+Greetings<br>
+Music Academy
+</p>
+</div>
+</BODY>
+</HTML>
